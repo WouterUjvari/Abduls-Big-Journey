@@ -5,6 +5,11 @@ public class UIManager : MonoBehaviour
 
     public static UIManager instance;
 
+    public GameObject introScreen;
+
+    public GameObject curtains;
+    public Animator curtainsAnimator;
+
     private void Awake()
     {
         #region Singleton
@@ -19,5 +24,16 @@ public class UIManager : MonoBehaviour
         #endregion
 
         DontDestroyOnLoad(gameObject);
+    }
+
+    public void StartLevel()
+    {
+        // play curtain open animation
+        curtainsAnimator.SetTrigger("CurtainsOpen");
+    }
+
+    public void EndLevel()
+    {
+        // play curtain close animation
     }
 }

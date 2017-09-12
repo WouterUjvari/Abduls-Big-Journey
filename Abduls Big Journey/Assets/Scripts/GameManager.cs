@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,5 +20,12 @@ public class GameManager : MonoBehaviour
         #endregion
 
         DontDestroyOnLoad(gameObject);
+    }
+
+    public void LoadLevel(int level)
+    {
+        SceneManager.LoadScene(level);
+        UIManager.instance.introScreen.SetActive(false);
+        UIManager.instance.StartLevel();
     }
 }
