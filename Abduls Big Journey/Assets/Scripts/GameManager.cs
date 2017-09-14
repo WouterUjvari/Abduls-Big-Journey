@@ -26,6 +26,6 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(level);
         UIManager.instance.introScreen.SetActive(false);
-        UIManager.instance.StartLevel();
+        UIManager.instance.StartLevelAnimation();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class UIManager : MonoBehaviour
 
     public GameObject curtains;
     public Animator curtainsAnimator;
+
+    public GameObject itemPanel;
+
+    public GameObject forceCursor;
+    public Image forceCursorFill;
 
     private void Awake()
     {
@@ -26,13 +32,13 @@ public class UIManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void StartLevel()
+    public void StartLevelAnimation()
     {
         // play curtain open animation
         curtainsAnimator.SetTrigger("CurtainsOpen");
     }
 
-    public void EndLevel()
+    public void EndLevelAnimation()
     {
         // play curtain close animation
     }
