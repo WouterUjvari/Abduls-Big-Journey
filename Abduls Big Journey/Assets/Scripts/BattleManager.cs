@@ -55,17 +55,4 @@ public class BattleManager : MonoBehaviour
             battleState = BattleState.Battling;
         }
     }
-
-    public void SelectItem(int item, Button button)
-    {
-        selectedItem = true;
-        itemSelected = item;
-        button.interactable = false;
-        lastSelectedItemButton = button;
-    }
-
-    public void EndTurn()
-    {
-        turnState = TurnState.Enemy;
-    }
 }

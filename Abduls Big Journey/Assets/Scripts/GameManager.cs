@@ -1,5 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,8 +25,23 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel(int level)
     {
-        SceneManager.LoadScene(level);
+        StartCoroutine(LoadLevelAsync(level));
+    }
+
+    public IEnumerator LoadLevelAsync(int level)
+    {
+        UIManager.instance.curtainsAnimator.SetTrigger("CloseCurtains");
+
+        yield return new WaitForSeconds(UIManager.instance.curtainsAnimator.GetCurrentAnimatorClipInfo(0).Length);
+
+        AsyncOperation operation = SceneManager.LoadSceneAsync(level);
         UIManager.instance.introScreen.SetActive(false);
-        UIManager.instance.StartLevelAnimation();
+
+        while (!operation.isDone)
+        {
+            yield return null;
+        }
+
+        UIManager.instance.curtainsAnimator.SetTrigger("OpenCurtains");
     }
 }

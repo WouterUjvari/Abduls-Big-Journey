@@ -35,7 +35,6 @@ public class UIManager : MonoBehaviour
     public void StartLevelAnimation()
     {
         // play curtain open animation
-        curtainsAnimator.SetTrigger("CurtainsOpen");
     }
 
     public void EndLevelAnimation()

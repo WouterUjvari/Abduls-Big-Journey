@@ -76,6 +76,7 @@ public class Battle : MonoBehaviour
         {
             UIManager.instance.itemPanel.SetActive(true);
 
+            // player can take a turn
             if (BattleManager.instance.turnState == BattleManager.TurnState.Player)
             {
                 if (BattleManager.instance.selectedItem == true)
@@ -84,11 +85,13 @@ public class Battle : MonoBehaviour
                     UIManager.instance.forceCursor.SetActive(true);
                     UIManager.instance.forceCursor.transform.position = Input.mousePosition;
 
+                    // hold left mouse button (slowly increases the force at which the item is gonna get launched at)
                     if (Input.GetMouseButton(0))
                     {
                         ChargeAttack();
                     }
 
+                    // release left mouse button (throws the item)
                     if (Input.GetMouseButtonUp(0))
                     {
                         if (projectileForce != 0)
@@ -97,7 +100,8 @@ public class Battle : MonoBehaviour
                         }
                     }
 
-                    if (Input.GetMouseButton(1))
+                    // click right mouse button (cancels the attack)
+                    if (Input.GetMouseButtonDown(1))
                     {
                         CancelAttack();
                     }
@@ -113,9 +117,14 @@ public class Battle : MonoBehaviour
                     BattleManager.instance.battleState = BattleManager.BattleState.End;
                 }
             }
+            // enemy can take a turn
             else if (BattleManager.instance.turnState == BattleManager.TurnState.Enemy)
             {
-                // enemy attack
+                for (int i = 0; i < enemies.Count; i++)
+                {
+                    // for each enemy in the list, start a coroutine where he gets to attack the player
+                    // if its the last enemy whos attacking, end the turn after hes done
+                }
             }
         }
         else
@@ -135,6 +144,19 @@ public class Battle : MonoBehaviour
                 EndGame(false);
             }
         }
+    }
+
+    public void SelectItem(int item, Button button)
+    {
+        BattleManager.instance.selectedItem = true;
+        BattleManager.instance.itemSelected = item;
+        button.interactable = false;
+        BattleManager.instance.lastSelectedItemButton = button;
+    }
+
+    public void EndTurn()
+    {
+        BattleManager.instance.turnState = BattleManager.TurnState.Enemy;
     }
 
     public void ChargeAttack()
@@ -163,6 +185,7 @@ public class Battle : MonoBehaviour
         BattleManager.instance.selectedItem = false;
         UIManager.instance.forceCursor.SetActive(false);
         projectileForce = 0;
+        UIManager.instance.forceCursorFill.fillAmount = 0;
         BattleManager.instance.lastSelectedItemButton.interactable = true;
     }
 

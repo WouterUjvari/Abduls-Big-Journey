@@ -8,6 +8,6 @@ public class ItemButton : MonoBehaviour
 
     public void SelectItem(int item)
     {
-        BattleManager.instance.SelectItem(item, GetComponent<Button>());
+        Battle.instance.SelectItem(item, GetComponent<Button>());
     }
 }
