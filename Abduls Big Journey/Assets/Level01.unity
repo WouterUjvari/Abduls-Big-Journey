@@ -222,10 +222,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 205361669}
-  - component: {fileID: 205361668}
   - component: {fileID: 205361667}
   m_Layer: 0
-  m_Name: BattleManager
+  m_Name: Battle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -246,33 +245,10 @@ MonoBehaviour:
   availableItems: []
   item1: 3
   item2: 1
-  player: {fileID: 0}
-  projectileForce: 0
+  enemyAttackInterval: 2
+  throwForce: 0
   maxForce: 80
   forceIncreaseSpeed: 35
---- !u!114 &205361668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 205361666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3963058032fc07e45bc5284f306f897a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  items:
-  - {fileID: 1547920713810928, guid: 7077c82b0debca6408ac2663958ccdaa, type: 2}
-  - {fileID: 1705723429985994, guid: 8673b403334ed5e41b7bf5d3647fae79, type: 2}
-  itemButtons:
-  - {fileID: 1932366948635970, guid: 161ef768377d6f247921a576296099b2, type: 2}
-  - {fileID: 1070510940015838, guid: 5e844b6a028cbc64bb3edfccc914b48b, type: 2}
-  battleState: 0
-  turnState: 0
-  currentTurn: 0
-  itemSelected: 0
-  selectedItem: 0
-  lastSelectedItemButton: {fileID: 0}
 --- !u!4 &205361669
 Transform:
   m_ObjectHideFlags: 0

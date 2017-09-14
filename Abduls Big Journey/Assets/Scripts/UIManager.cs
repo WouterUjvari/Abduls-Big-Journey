@@ -31,14 +31,4 @@ public class UIManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
     }
-
-    public void StartLevelAnimation()
-    {
-        // play curtain open animation
-    }
-
-    public void EndLevelAnimation()
-    {
-        // play curtain close animation
-    }
 }

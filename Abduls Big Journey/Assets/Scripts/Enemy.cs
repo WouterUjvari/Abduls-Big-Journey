@@ -19,6 +19,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public void Attack()
+    {
+
+    }
+
     public void Hit(int damage)
     {
         currentHealth -= damage;

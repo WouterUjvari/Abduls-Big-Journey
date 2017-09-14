@@ -15,11 +15,16 @@ public class Battle : MonoBehaviour
     public int item1;
     public int item2;
 
-    public GameObject player;
+    private GameObject player;
     private Vector3 mousePos;
 
+    private List<GameObject> enemiesWhoCanAttack = new List<GameObject>();
+    private bool canCreateEnemiesWhoCanAttack = true;
+    private bool enemyCanAttack = true;
+    public float enemyAttackInterval = 2f;
+
     [Header("Force")]
-    public float projectileForce = 5f;
+    public float throwForce;
     public float maxForce = 80;
     public float forceIncreaseSpeed = 3f;
 
@@ -74,11 +79,11 @@ public class Battle : MonoBehaviour
 
         if (BattleManager.instance.battleState == BattleManager.BattleState.Battling)
         {
-            UIManager.instance.itemPanel.SetActive(true);
-
             // player can take a turn
             if (BattleManager.instance.turnState == BattleManager.TurnState.Player)
             {
+                UIManager.instance.itemPanel.SetActive(true);
+
                 if (BattleManager.instance.selectedItem == true)
                 {
                     // if player has selected an item, show the force charge cursor
@@ -94,7 +99,7 @@ public class Battle : MonoBehaviour
                     // release left mouse button (throws the item)
                     if (Input.GetMouseButtonUp(0))
                     {
-                        if (projectileForce != 0)
+                        if (throwForce != 0)
                         {
                             Attack();
                         }
@@ -120,18 +125,39 @@ public class Battle : MonoBehaviour
             // enemy can take a turn
             else if (BattleManager.instance.turnState == BattleManager.TurnState.Enemy)
             {
-                for (int i = 0; i < enemies.Count; i++)
+                UIManager.instance.itemPanel.SetActive(false);
+
+                // extra if statement cuz this is all done in update but we only want to do this once
+                if (canCreateEnemiesWhoCanAttack)
                 {
-                    // for each enemy in the list, start a coroutine where he gets to attack the player
-                    // if its the last enemy whos attacking, end the turn after hes done
+                    canCreateEnemiesWhoCanAttack = false;
+
+                    // creates a list to store all enemies who can attack
+                    enemiesWhoCanAttack = new List<GameObject>();
+
+                    // loops through all alive enemies and adds them to the above list
+                    for (int i = 0; i < enemies.Count; i++)
+                    {
+                        enemiesWhoCanAttack.Add(enemies[i]);
+                    }
+                }
+
+                // this bool is default set to true, if its true it lets a random enemy from the list enemiesWhoCanAttack attack, 
+                // while hes attacking the bool is set to false and he gets thrown out of the list, after hes done the next random enemy can attack
+                if (enemyCanAttack)
+                {
+                    StartCoroutine(EnemyAttack(Random.Range(0, enemiesWhoCanAttack.Count)));
+                }
+
+                // if the list enemiesWhoCanAttack is empty, all the enemies have attacked and the player gets to play again
+                if (enemiesWhoCanAttack.Count == 0)
+                {
+                    BattleManager.instance.turnState = BattleManager.TurnState.Player;
+                    canCreateEnemiesWhoCanAttack = true;
                 }
             }
         }
-        else
-        {
-            UIManager.instance.itemPanel.SetActive(false);
-        }
-
+        
         // if all enemies are dead, end the game with a victory, else with a defeat
         if (BattleManager.instance.battleState == BattleManager.BattleState.End)
         {
@@ -150,8 +176,9 @@ public class Battle : MonoBehaviour
     {
         BattleManager.instance.selectedItem = true;
         BattleManager.instance.itemSelected = item;
-        button.interactable = false;
         BattleManager.instance.lastSelectedItemButton = button;
+
+        button.interactable = false;
     }
 
     public void EndTurn()
@@ -159,34 +186,55 @@ public class Battle : MonoBehaviour
         BattleManager.instance.turnState = BattleManager.TurnState.Enemy;
     }
 
+    // player attacks
     public void ChargeAttack()
     {
-        if (projectileForce <= maxForce)
+        if (throwForce <= maxForce)
         {
-            projectileForce += Time.deltaTime * forceIncreaseSpeed;
+            throwForce += Time.deltaTime * forceIncreaseSpeed;
         }
-        UIManager.instance.forceCursorFill.fillAmount = projectileForce / maxForce;
+        UIManager.instance.forceCursorFill.fillAmount = throwForce / maxForce;
     }
 
-    // careful, bunch of ugly code below
     public void Attack()
     {
-        GameObject projectile = Instantiate(BattleManager.instance.items[BattleManager.instance.itemSelected], player.transform);
-        projectile.GetComponent<Rigidbody>().AddForce(new Vector3(mousePos.x, mousePos.y, 0) * projectileForce);
+        // instantiating the item and removing it from the list
+        GameObject item = Instantiate(BattleManager.instance.items[BattleManager.instance.itemSelected], player.transform);
+        item.GetComponent<Rigidbody>().AddForce(new Vector3(mousePos.x, mousePos.y, 0) * throwForce);
+
         availableItems.Remove(BattleManager.instance.items[BattleManager.instance.itemSelected]);
+
         BattleManager.instance.selectedItem = false;
+
+        // resetting force 
         UIManager.instance.forceCursor.SetActive(false);
-        projectileForce = 0;
+        throwForce = 0;
         UIManager.instance.forceCursorFill.GetComponent<Image>().fillAmount = 0;
     }
 
     public void CancelAttack()
     {
         BattleManager.instance.selectedItem = false;
+
+        // resetting force
         UIManager.instance.forceCursor.SetActive(false);
-        projectileForce = 0;
+        throwForce = 0;
         UIManager.instance.forceCursorFill.fillAmount = 0;
+
+        // setting the item button to interactable again
         BattleManager.instance.lastSelectedItemButton.interactable = true;
+    }
+
+    // enemy attacks
+    public IEnumerator EnemyAttack(int enemy)
+    {
+        print(enemies[enemy].name + " is attacking!");
+        enemyCanAttack = false;
+        enemies[enemy].GetComponent<Enemy>().Attack();
+        enemiesWhoCanAttack.Remove(enemies[enemy]);
+
+        yield return new WaitForSeconds(enemyAttackInterval);
+        enemyCanAttack = true;
     }
 
     private void EndGame(bool victory)
