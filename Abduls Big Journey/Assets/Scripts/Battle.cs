@@ -15,7 +15,7 @@ public class Battle : MonoBehaviour
     public int item1;
     public int item2;
 
-    private GameObject player;
+    public GameObject player;
     private Vector3 mousePos;
 
     private List<GameObject> enemiesWhoCanAttack = new List<GameObject>();
