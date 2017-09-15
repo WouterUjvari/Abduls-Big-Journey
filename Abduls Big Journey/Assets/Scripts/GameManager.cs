@@ -43,5 +43,19 @@ public class GameManager : MonoBehaviour
         }
 
         UIManager.instance.curtainsAnimator.SetTrigger("OpenCurtains");
+
+        yield return new WaitForSeconds(UIManager.instance.curtainsAnimator.GetCurrentAnimatorClipInfo(0).Length);
+
+        UIManager.instance.levelText.text = "Level: " + level;
+        UIManager.instance.levelText.enabled = true;
+        UIManager.instance.notificationsAnimator.SetTrigger("SetActive");
+        yield return new WaitForSeconds(UIManager.instance.notificationsAnimator.GetCurrentAnimatorClipInfo(0).Length);
+        UIManager.instance.notificationsAnimator.SetTrigger("SetInActive");
+        yield return new WaitForSeconds(UIManager.instance.notificationsAnimator.GetCurrentAnimatorClipInfo(0).Length);
+
+        yield return new WaitForSeconds(0.5f);
+        UIManager.instance.levelText.enabled = false;
+
+        BattleManager.instance.battleState = BattleManager.BattleState.Battling;
     }
 }
