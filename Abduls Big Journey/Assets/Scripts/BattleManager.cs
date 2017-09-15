@@ -26,6 +26,8 @@ public class BattleManager : MonoBehaviour
     }
     public TurnState turnState;
 
+    public bool playerCanAttack = true;
+
     public int currentTurn;
 
     public int itemSelected;
@@ -48,11 +50,8 @@ public class BattleManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Update()
+    public void EndTurn()
     {
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            battleState = BattleState.Battling;
-        }
+        turnState = TurnState.Enemy;
     }
 }

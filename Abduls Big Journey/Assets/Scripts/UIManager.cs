@@ -11,6 +11,12 @@ public class UIManager : MonoBehaviour
     public GameObject curtains;
     public Animator curtainsAnimator;
 
+    public GameObject notificationPanel;
+    public Text levelText;
+    public Text notificationText;
+    public Animator notificationsAnimator;
+
+    public GameObject gameplayPanel;
     public GameObject itemPanel;
 
     public GameObject forceCursor;

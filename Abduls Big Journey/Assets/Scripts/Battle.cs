@@ -82,50 +82,53 @@ public class Battle : MonoBehaviour
             // player can take a turn
             if (BattleManager.instance.turnState == BattleManager.TurnState.Player)
             {
-                UIManager.instance.itemPanel.SetActive(true);
+                UIManager.instance.gameplayPanel.SetActive(true);
 
-                if (BattleManager.instance.selectedItem == true)
+                if (BattleManager.instance.playerCanAttack)
                 {
-                    // if player has selected an item, show the force charge cursor
-                    UIManager.instance.forceCursor.SetActive(true);
-                    UIManager.instance.forceCursor.transform.position = Input.mousePosition;
-
-                    // hold left mouse button (slowly increases the force at which the item is gonna get launched at)
-                    if (Input.GetMouseButton(0))
+                    if (BattleManager.instance.selectedItem == true)
                     {
-                        ChargeAttack();
-                    }
+                        // if player has selected an item, show the force charge cursor
+                        UIManager.instance.forceCursor.SetActive(true);
+                        UIManager.instance.forceCursor.transform.position = Input.mousePosition;
 
-                    // release left mouse button (throws the item)
-                    if (Input.GetMouseButtonUp(0))
-                    {
-                        if (throwForce != 0)
+                        // hold left mouse button (slowly increases the force at which the item is gonna get launched at)
+                        if (Input.GetMouseButton(0))
                         {
-                            Attack();
+                            ChargeAttack();
+                        }
+
+                        // release left mouse button (throws the item)
+                        if (Input.GetMouseButtonUp(0))
+                        {
+                            if (throwForce != 0)
+                            {
+                                Attack();
+                            }
+                        }
+
+                        // click right mouse button (cancels the attack)
+                        if (Input.GetMouseButtonDown(1))
+                        {
+                            CancelAttack();
                         }
                     }
-
-                    // click right mouse button (cancels the attack)
-                    if (Input.GetMouseButtonDown(1))
+                    else
                     {
-                        CancelAttack();
+                        BattleManager.instance.selectedItem = false;
+                        UIManager.instance.forceCursor.SetActive(false);
                     }
-                }
-                else
-                {
-                    BattleManager.instance.selectedItem = false;
-                    UIManager.instance.forceCursor.SetActive(false);
-                }
 
-                if (enemies.Count == 0 || availableItems.Count == 0)
-                {
-                    BattleManager.instance.battleState = BattleManager.BattleState.End;
+                    if (enemies.Count == 0 || availableItems.Count == 0)
+                    {
+                        BattleManager.instance.battleState = BattleManager.BattleState.End;
+                    }
                 }
             }
             // enemy can take a turn
             else if (BattleManager.instance.turnState == BattleManager.TurnState.Enemy)
             {
-                UIManager.instance.itemPanel.SetActive(false);
+                UIManager.instance.gameplayPanel.SetActive(false);
 
                 // extra if statement cuz this is all done in update but we only want to do this once
                 if (canCreateEnemiesWhoCanAttack)
@@ -146,13 +149,19 @@ public class Battle : MonoBehaviour
                 // while hes attacking the bool is set to false and he gets thrown out of the list, after hes done the next random enemy can attack
                 if (enemyCanAttack)
                 {
-                    StartCoroutine(EnemyAttack(Random.Range(0, enemiesWhoCanAttack.Count)));
+                    int enemyWhoGetsToAttack = (Random.Range(0, enemiesWhoCanAttack.Count));
+
+                    StartCoroutine(EnemyAttack(enemyWhoGetsToAttack));
+
+                    enemiesWhoCanAttack.Remove(enemiesWhoCanAttack[enemyWhoGetsToAttack]);
                 }
 
                 // if the list enemiesWhoCanAttack is empty, all the enemies have attacked and the player gets to play again
                 if (enemiesWhoCanAttack.Count == 0)
                 {
+                    print("enemies' turn ended, player should be allowed to attack now");
                     BattleManager.instance.turnState = BattleManager.TurnState.Player;
+                    BattleManager.instance.playerCanAttack = true;
                     canCreateEnemiesWhoCanAttack = true;
                 }
             }
@@ -181,11 +190,6 @@ public class Battle : MonoBehaviour
         button.interactable = false;
     }
 
-    public void EndTurn()
-    {
-        BattleManager.instance.turnState = BattleManager.TurnState.Enemy;
-    }
-
     // player attacks
     public void ChargeAttack()
     {
@@ -198,9 +202,13 @@ public class Battle : MonoBehaviour
 
     public void Attack()
     {
-        // instantiating the item and removing it from the list
+        BattleManager.instance.playerCanAttack = false;
+
+        // instantiating the item, adding force to it and removing it from the list
         GameObject item = Instantiate(BattleManager.instance.items[BattleManager.instance.itemSelected], player.transform);
-        item.GetComponent<Rigidbody>().AddForce(new Vector3(mousePos.x, mousePos.y, 0) * throwForce);
+
+        Vector3 direction = (mousePos - player.transform.position).normalized;
+        item.GetComponent<Rigidbody>().AddForce(direction * throwForce);
 
         availableItems.Remove(BattleManager.instance.items[BattleManager.instance.itemSelected]);
 
@@ -231,7 +239,6 @@ public class Battle : MonoBehaviour
         print(enemies[enemy].name + " is attacking!");
         enemyCanAttack = false;
         enemies[enemy].GetComponent<Enemy>().Attack();
-        enemiesWhoCanAttack.Remove(enemies[enemy]);
 
         yield return new WaitForSeconds(enemyAttackInterval);
         enemyCanAttack = true;
@@ -241,11 +248,11 @@ public class Battle : MonoBehaviour
     {
         if (victory == true)
         {
-            // won game
+            print("victory");
         }
         else
         {
-            // lost game
+            print("defeat");
         }
     }
 }

@@ -213,7 +213,7 @@ MonoBehaviour:
   currentOffset: {x: 0, y: 0, z: 0}
   defaultOffset: {x: 0, y: 0, z: 0}
   battleOffset: {x: 9.3, y: 9.1, z: -12.35}
-  followSpeed: 5
+  followSpeed: 1
 --- !u!1 &205361666
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,8 +247,8 @@ MonoBehaviour:
   item2: 1
   enemyAttackInterval: 2
   throwForce: 0
-  maxForce: 80
-  forceIncreaseSpeed: 35
+  maxForce: 1000
+  forceIncreaseSpeed: 400
 --- !u!4 &205361669
 Transform:
   m_ObjectHideFlags: 0

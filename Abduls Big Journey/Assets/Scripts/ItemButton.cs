@@ -8,6 +8,9 @@ public class ItemButton : MonoBehaviour
 
     public void SelectItem(int item)
     {
-        Battle.instance.SelectItem(item, GetComponent<Button>());
+        if (BattleManager.instance.playerCanAttack)
+        {
+            Battle.instance.SelectItem(item, GetComponent<Button>());
+        }
     }
 }
