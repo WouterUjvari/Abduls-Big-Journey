@@ -22,6 +22,11 @@ public class UIManager : MonoBehaviour
     public GameObject forceCursor;
     public Image forceCursorFill;
 
+    public Image playerHealthbar;
+    public Image enemyTotalHealthbar;
+
+    public Text turnText;
+
     private void Awake()
     {
         #region Singleton
