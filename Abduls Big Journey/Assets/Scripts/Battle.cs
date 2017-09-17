@@ -23,6 +23,10 @@ public class Battle : MonoBehaviour
     private bool enemyCanAttack = true;
     public float enemyAttackInterval = 2f;
 
+    public int turn = 1;
+
+    public GameObject lastThrowLocation;
+
     [Header("Force")]
     public float throwForce;
     public float maxForce = 80;
@@ -83,6 +87,7 @@ public class Battle : MonoBehaviour
             if (BattleManager.instance.turnState == BattleManager.TurnState.Player)
             {
                 UIManager.instance.gameplayPanel.SetActive(true);
+                UIManager.instance.itemPanel.SetActive(true);
 
                 if (BattleManager.instance.playerCanAttack)
                 {
@@ -128,7 +133,7 @@ public class Battle : MonoBehaviour
             // enemy can take a turn
             else if (BattleManager.instance.turnState == BattleManager.TurnState.Enemy)
             {
-                UIManager.instance.gameplayPanel.SetActive(false);
+                UIManager.instance.itemPanel.SetActive(false);
 
                 // extra if statement cuz this is all done in update but we only want to do this once
                 if (canCreateEnemiesWhoCanAttack)
@@ -161,6 +166,10 @@ public class Battle : MonoBehaviour
                 {
                     print("enemies' turn ended, player should be allowed to attack now");
                     BattleManager.instance.turnState = BattleManager.TurnState.Player;
+
+                    turn++;
+                    UIManager.instance.turnText.text = "Turn: " + turn;
+
                     BattleManager.instance.playerCanAttack = true;
                     canCreateEnemiesWhoCanAttack = true;
                 }
@@ -213,6 +222,29 @@ public class Battle : MonoBehaviour
         availableItems.Remove(BattleManager.instance.items[BattleManager.instance.itemSelected]);
 
         BattleManager.instance.selectedItem = false;
+
+        // leave behind an image of the cursor with a low alpha to let the player know where his last throw was
+        if (lastThrowLocation == null)
+        {
+            lastThrowLocation = Instantiate(UIManager.instance.forceCursor, UIManager.instance.forceCursor.transform.position, Quaternion.identity, UIManager.instance.forceCursor.transform.parent);
+
+            Image[] images = lastThrowLocation.GetComponentsInChildren<Image>();
+            foreach (Image image in images)
+            {
+                image.CrossFadeAlpha(0.2f, 0, true);
+            }
+        }
+        else
+        {
+            Destroy(lastThrowLocation);
+            lastThrowLocation = Instantiate(UIManager.instance.forceCursor, UIManager.instance.forceCursor.transform.position, Quaternion.identity, UIManager.instance.forceCursor.transform.parent);
+
+            Image[] images = lastThrowLocation.GetComponentsInChildren<Image>();
+            foreach (Image image in images)
+            {
+                image.CrossFadeAlpha(0.2f, 0, true);
+            }
+        }
 
         // resetting force 
         UIManager.instance.forceCursor.SetActive(false);
