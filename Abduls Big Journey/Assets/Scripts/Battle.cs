@@ -27,6 +27,8 @@ public class Battle : MonoBehaviour
 
     public GameObject lastThrowLocation;
 
+    public Animator anim;
+
     [Header("Force")]
     public float throwForce;
     public float maxForce = 80;
@@ -80,6 +82,8 @@ public class Battle : MonoBehaviour
         mousePos = Input.mousePosition;
         mousePos.z = 9f;
         mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+
+        anim.SetFloat("Force", throwForce);
 
         if (BattleManager.instance.battleState == BattleManager.BattleState.Battling)
         {
@@ -224,26 +228,17 @@ public class Battle : MonoBehaviour
         BattleManager.instance.selectedItem = false;
 
         // leave behind an image of the cursor with a low alpha to let the player know where his last throw was
-        if (lastThrowLocation == null)
-        {
-            lastThrowLocation = Instantiate(UIManager.instance.forceCursor, UIManager.instance.forceCursor.transform.position, Quaternion.identity, UIManager.instance.forceCursor.transform.parent);
-
-            Image[] images = lastThrowLocation.GetComponentsInChildren<Image>();
-            foreach (Image image in images)
-            {
-                image.CrossFadeAlpha(0.2f, 0, true);
-            }
-        }
-        else
+        if (lastThrowLocation != null)
         {
             Destroy(lastThrowLocation);
-            lastThrowLocation = Instantiate(UIManager.instance.forceCursor, UIManager.instance.forceCursor.transform.position, Quaternion.identity, UIManager.instance.forceCursor.transform.parent);
+        }
 
-            Image[] images = lastThrowLocation.GetComponentsInChildren<Image>();
-            foreach (Image image in images)
-            {
-                image.CrossFadeAlpha(0.2f, 0, true);
-            }
+        lastThrowLocation = Instantiate(UIManager.instance.forceCursor, UIManager.instance.forceCursor.transform.position, Quaternion.identity, UIManager.instance.forceCursor.transform.parent);
+
+        Image[] images = lastThrowLocation.GetComponentsInChildren<Image>();
+        foreach (Image image in images)
+        {
+            image.CrossFadeAlpha(0.2f, 0, true);
         }
 
         // resetting force 
