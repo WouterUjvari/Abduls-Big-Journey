@@ -27,6 +27,9 @@ public class UIManager : MonoBehaviour
 
     public Text turnText;
 
+    public GameObject gameEndPanel;
+    public Text victoryOrDefeatText;
+
     private void Awake()
     {
         #region Singleton

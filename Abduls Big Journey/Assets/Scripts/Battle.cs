@@ -128,10 +128,11 @@ public class Battle : MonoBehaviour
                         UIManager.instance.forceCursor.SetActive(false);
                     }
 
-                    if (enemies.Count == 0 || availableItems.Count == 0)
-                    {
-                        BattleManager.instance.battleState = BattleManager.BattleState.End;
-                    }
+                }
+
+                if (enemies.Count == 0)
+                {
+                    BattleManager.instance.battleState = BattleManager.BattleState.End;
                 }
             }
             // enemy can take a turn
@@ -168,6 +169,11 @@ public class Battle : MonoBehaviour
                 // if the list enemiesWhoCanAttack is empty, all the enemies have attacked and the player gets to play again
                 if (enemiesWhoCanAttack.Count == 0)
                 {
+                    if (availableItems.Count == 0)
+                    {
+                        BattleManager.instance.battleState = BattleManager.BattleState.End;
+                    }
+
                     print("enemies' turn ended, player should be allowed to attack now");
                     BattleManager.instance.turnState = BattleManager.TurnState.Player;
 
@@ -271,15 +277,17 @@ public class Battle : MonoBehaviour
         enemyCanAttack = true;
     }
 
-    private void EndGame(bool victory)
+    public void EndGame(bool victory)
     {
         if (victory == true)
         {
-            print("victory");
+            UIManager.instance.victoryOrDefeatText.text = "Victory!";
+            UIManager.instance.gameEndPanel.SetActive(true);
         }
         else
         {
-            print("defeat");
+            UIManager.instance.victoryOrDefeatText.text = "Defeat!";
+            UIManager.instance.gameEndPanel.SetActive(true);
         }
     }
 }

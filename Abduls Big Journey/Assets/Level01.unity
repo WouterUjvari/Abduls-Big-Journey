@@ -315,8 +315,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies: []
   availableItems: []
-  item1: 3
-  item2: 1
+  item1: 4
+  item2: 2
   player: {fileID: 0}
   enemyAttackInterval: 2
   turn: 1
@@ -573,6 +573,7 @@ GameObject:
   - component: {fileID: 644696948}
   - component: {fileID: 644696951}
   - component: {fileID: 644696950}
+  - component: {fileID: 644696952}
   m_Layer: 0
   m_Name: PlayerTest
   m_TagString: Player
@@ -675,6 +676,18 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
+--- !u!65 &644696952
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 644696947}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3808396, y: 4.518155, z: 1}
+  m_Center: {x: 0.12117624, y: -0.25608826, z: 0}
 --- !u!1 &888690540
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,7 +920,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  throwingItem: {fileID: 1547920713810928, guid: 7077c82b0debca6408ac2663958ccdaa,
+  throwingItem: {fileID: 1547920713810928, guid: 3eb401d2b86cae643914b550fb3f5d0a,
     type: 2}
   throwForce: 500
 --- !u!1 &1519738223
@@ -1386,7 +1399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  throwingItem: {fileID: 1547920713810928, guid: 7077c82b0debca6408ac2663958ccdaa,
+  throwingItem: {fileID: 1547920713810928, guid: 8bf2f7480fb742c48b68b75429ec1e46,
     type: 2}
   throwForce: 500
 --- !u!1 &2147019900

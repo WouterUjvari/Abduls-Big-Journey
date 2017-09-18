@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel(int level)
     {
+        if (UIManager.instance.gameEndPanel.activeInHierarchy)
+        {
+            UIManager.instance.gameEndPanel.SetActive(false);
+        }
+
         StartCoroutine(LoadLevelAsync(level));
     }
 
@@ -57,5 +62,15 @@ public class GameManager : MonoBehaviour
         UIManager.instance.levelText.enabled = false;
 
         BattleManager.instance.battleState = BattleManager.BattleState.Battling;
+    }
+
+    public void ReplayLevel(int level)
+    {
+        if (UIManager.instance.gameEndPanel.activeInHierarchy)
+        {
+            UIManager.instance.gameEndPanel.SetActive(false);
+        }
+
+        LoadLevel(SceneManager.GetActiveScene().buildIndex);
     }
 }

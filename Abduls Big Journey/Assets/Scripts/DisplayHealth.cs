@@ -20,7 +20,7 @@ public class DisplayHealth : MonoBehaviour
     private void Update()
     {
         UIManager.instance.enemyTotalHealthbar.fillAmount = (float)CalculateEnemyCurrentHealth() / enemyMaxHealth;
-        UIManager.instance.playerHealthbar.fillAmount = player.currentHealth / player.maxHealth;
+        UIManager.instance.playerHealthbar.fillAmount = (float)player.currentHealth / player.maxHealth;
     }
 
     private int CalculateEnemyCurrentHealth()

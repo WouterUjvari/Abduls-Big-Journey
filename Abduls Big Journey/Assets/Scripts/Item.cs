@@ -1,15 +1,34 @@
 ﻿using UnityEngine;
 
-public class Item : MonoBehaviour {
+public class Item : MonoBehaviour
+{
+
+    public enum Type
+    {
+        PlayerItem,
+        EnemyItem
+    }
+    public Type type;
 
     public int damage;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Enemy")
+        if (type == Type.PlayerItem)
         {
-            other.GetComponent<Enemy>().Hit(damage);
-            Destroy(gameObject);
+            if (other.tag == "Enemy")
+            {
+                other.GetComponent<Enemy>().Hit(damage);
+                Destroy(gameObject);
+            }
+        }
+        else
+        {
+            if (other.tag == "Player")
+            {
+                other.GetComponent<Player>().currentHealth -= damage;
+                Destroy(gameObject);
+            }
         }
     }
 }
