@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 1c8d888d28e97cd4cafbd87876ce7538
-timeCreated: 1505652239
+timeCreated: 1505820714
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -88,12 +88,12 @@ TextureImporter:
       name: AbdulSheet 1_0
       rect:
         serializedVersion: 2
-        x: 263
-        y: 343
-        width: 98
-        height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 265.31073
+        y: 338
+        width: 102.41742
+        height: 125.57605
+      alignment: 9
+      pivot: {x: 0.4558724, y: 0.49770635}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -116,12 +116,12 @@ TextureImporter:
       name: AbdulSheet 1_2
       rect:
         serializedVersion: 2
-        x: 291
-        y: 215
-        width: 78
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 286
+        y: 222
+        width: 88
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3723404}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -130,12 +130,12 @@ TextureImporter:
       name: AbdulSheet 1_3
       rect:
         serializedVersion: 2
-        x: 257
-        y: 278
-        width: 137
-        height: 55
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 252
+        y: 281
+        width: 147
+        height: 57
+      alignment: 9
+      pivot: {x: 0.5, y: 0.42982456}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -144,12 +144,12 @@ TextureImporter:
       name: AbdulSheet 1_4
       rect:
         serializedVersion: 2
-        x: 294
-        y: 62
-        width: 85
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 289
+        y: 68
+        width: 95
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3829787}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -158,12 +158,12 @@ TextureImporter:
       name: AbdulSheet 1_5
       rect:
         serializedVersion: 2
-        x: 272
-        y: 155
-        width: 134
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 267.11307
+        y: 150
+        width: 145.13077
+        height: 57.226166
+      alignment: 9
+      pivot: {x: 0.49532527, y: 0.5853966}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -172,12 +172,12 @@ TextureImporter:
       name: AbdulSheet 1_6
       rect:
         serializedVersion: 2
-        x: 182
-        y: 159
-        width: 53
-        height: 99
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 177
+        y: 154
+        width: 63
+        height: 109
+      alignment: 9
+      pivot: {x: 0.5, y: 0.49999997}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -186,12 +186,12 @@ TextureImporter:
       name: AbdulSheet 1_7
       rect:
         serializedVersion: 2
-        x: 193
-        y: 35
-        width: 74
-        height: 119
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 188
+        y: 29.999996
+        width: 84
+        height: 129
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -200,12 +200,12 @@ TextureImporter:
       name: AbdulSheet 1_8
       rect:
         serializedVersion: 2
-        x: 108
-        y: 154
-        width: 59
-        height: 103
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 103
+        y: 149
+        width: 69
+        height: 113
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -214,12 +214,12 @@ TextureImporter:
       name: AbdulSheet 1_9
       rect:
         serializedVersion: 2
-        x: 82
-        y: 35
-        width: 74
-        height: 119
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 77
+        y: 29.999996
+        width: 84
+        height: 129
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -227,6 +227,6 @@ TextureImporter:
     outline: []
     physicsShape: []
   spritePackingTag: 
-  userData: 
+  userData: 98685466060478
   assetBundleName: 
   assetBundleVariant: 

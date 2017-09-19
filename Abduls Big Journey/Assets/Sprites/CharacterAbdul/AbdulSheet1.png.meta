@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 607dda4622bc0e34983e3d933e64c31b
-timeCreated: 1505653793
+timeCreated: 1505820746
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -79,12 +79,12 @@ TextureImporter:
       name: AbdulSheet1_0
       rect:
         serializedVersion: 2
-        x: 106
-        y: 257
-        width: 147
-        height: 198
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 101
+        y: 252
+        width: 125
+        height: 211.20969
+      alignment: 9
+      pivot: {x: 0.628, y: 0.49240163}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -92,6 +92,6 @@ TextureImporter:
     outline: []
     physicsShape: []
   spritePackingTag: 
-  userData: 
+  userData: 98680298848108
   assetBundleName: 
   assetBundleVariant: 
