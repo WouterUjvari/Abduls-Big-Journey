@@ -47,6 +47,8 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
+        BattleManager.instance.StartLevel();
+
         UIManager.instance.curtainsAnimator.SetTrigger("OpenCurtains");
 
         yield return new WaitForSeconds(UIManager.instance.curtainsAnimator.GetCurrentAnimatorClipInfo(0).Length);

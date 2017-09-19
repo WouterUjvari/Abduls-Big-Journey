@@ -315,11 +315,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies: []
   availableItems: []
-  item1: 4
-  item2: 2
+  item1: 2
+  item2: 1
+  item3: 1
+  item4: 3
   player: {fileID: 0}
   enemyAttackInterval: 2
-  turn: 1
   lastThrowLocation: {fileID: 0}
   anim: {fileID: 644696950}
   throwForce: 0

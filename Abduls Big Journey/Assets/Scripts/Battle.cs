@@ -14,6 +14,8 @@ public class Battle : MonoBehaviour
 
     public int item1;
     public int item2;
+    public int item3;
+    public int item4;
 
     public GameObject player;
     private Vector3 mousePos;
@@ -22,8 +24,6 @@ public class Battle : MonoBehaviour
     private bool canCreateEnemiesWhoCanAttack = true;
     private bool enemyCanAttack = true;
     public float enemyAttackInterval = 2f;
-
-    public int turn = 1;
 
     public GameObject lastThrowLocation;
 
@@ -74,6 +74,16 @@ public class Battle : MonoBehaviour
         {
             availableItems.Add(BattleManager.instance.items[1]);
             GameObject itemButton = Instantiate(BattleManager.instance.itemButtons[1], UIManager.instance.itemPanel.transform);
+        }
+        for (int i = 0; i < item3; i++)
+        {
+            availableItems.Add(BattleManager.instance.items[2]);
+            GameObject itemButton = Instantiate(BattleManager.instance.itemButtons[2], UIManager.instance.itemPanel.transform);
+        }
+        for (int i = 0; i < item4; i++)
+        {
+            availableItems.Add(BattleManager.instance.items[3]);
+            GameObject itemButton = Instantiate(BattleManager.instance.itemButtons[3], UIManager.instance.itemPanel.transform);
         }
     }
 
@@ -177,8 +187,8 @@ public class Battle : MonoBehaviour
                     print("enemies' turn ended, player should be allowed to attack now");
                     BattleManager.instance.turnState = BattleManager.TurnState.Player;
 
-                    turn++;
-                    UIManager.instance.turnText.text = "Turn: " + turn;
+                    BattleManager.instance.currentTurn++;
+                    UIManager.instance.turnText.text = "Turn: " + BattleManager.instance.currentTurn;
 
                     BattleManager.instance.playerCanAttack = true;
                     canCreateEnemiesWhoCanAttack = true;

@@ -13,4 +13,9 @@ public class Player : MonoBehaviour
             BattleManager.instance.battleState = BattleManager.BattleState.End;
         }
     }
+
+    public void Hit(int damage)
+    {
+        currentHealth -= damage;
+    }
 }

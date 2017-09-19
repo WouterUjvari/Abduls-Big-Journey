@@ -12,6 +12,13 @@ public class Item : MonoBehaviour
 
     public int damage;
 
+    public float rotateSpeed;
+
+    private void Update()
+    {
+        transform.Rotate(-Vector3.forward * (Time.deltaTime * rotateSpeed));
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (type == Type.PlayerItem)
@@ -26,7 +33,7 @@ public class Item : MonoBehaviour
         {
             if (other.tag == "Player")
             {
-                other.GetComponent<Player>().currentHealth -= damage;
+                other.GetComponent<Player>().Hit(damage);
                 Destroy(gameObject);
             }
         }
