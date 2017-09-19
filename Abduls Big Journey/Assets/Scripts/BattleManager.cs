@@ -28,7 +28,7 @@ public class BattleManager : MonoBehaviour
 
     public bool playerCanAttack = true;
 
-    public int currentTurn;
+    public int currentTurn = 1;
 
     public int itemSelected;
     public bool selectedItem;
@@ -48,6 +48,18 @@ public class BattleManager : MonoBehaviour
         #endregion
 
         DontDestroyOnLoad(gameObject);
+    }
+
+    // sets all variables to the default settings to that you start each level 'fresh' with no leftovers from last level
+    public void StartLevel()
+    {
+        battleState = BattleState.Start;
+        turnState = TurnState.Player;
+        playerCanAttack = true;
+        currentTurn = 1;
+        UIManager.instance.turnText.text = "Turn: " + currentTurn;
+        selectedItem = false;
+        lastSelectedItemButton = null;
     }
 
     public void EndTurn()

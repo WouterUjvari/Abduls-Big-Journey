@@ -578,15 +578,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 1547920713810928, guid: 7077c82b0debca6408ac2663958ccdaa, type: 2}
   - {fileID: 1705723429985994, guid: 8673b403334ed5e41b7bf5d3647fae79, type: 2}
+  - {fileID: 1547920713810928, guid: 7077c82b0debca6408ac2663958ccdaa, type: 2}
+  - {fileID: 1547920713810928, guid: 06a4be26e684b844f93d32a4803dadf2, type: 2}
+  - {fileID: 1547920713810928, guid: bd4030540c4b63843ae347096b8eb15a, type: 2}
   itemButtons:
   - {fileID: 1932366948635970, guid: 161ef768377d6f247921a576296099b2, type: 2}
   - {fileID: 1070510940015838, guid: 5e844b6a028cbc64bb3edfccc914b48b, type: 2}
+  - {fileID: 1070510940015838, guid: 70f2184f2c5a5864d8dbb759cc4b7882, type: 2}
+  - {fileID: 1070510940015838, guid: 2b1a20e43c2a94d4eb1a6f729e833d7d, type: 2}
   battleState: 0
   turnState: 0
   playerCanAttack: 1
-  currentTurn: 0
+  currentTurn: 1
   itemSelected: 0
   selectedItem: 0
   lastSelectedItemButton: {fileID: 0}
@@ -1303,7 +1307,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &813957404
 RectTransform:
   m_ObjectHideFlags: 0
