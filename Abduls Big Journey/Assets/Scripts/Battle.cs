@@ -27,8 +27,6 @@ public class Battle : MonoBehaviour
 
     public GameObject lastThrowLocation;
 
-    public Animator anim;
-
     [Header("Force")]
     public float throwForce;
     public float maxForce = 80;
@@ -93,7 +91,7 @@ public class Battle : MonoBehaviour
         mousePos.z = 9f;
         mousePos = Camera.main.ScreenToWorldPoint(mousePos);
 
-        anim.SetFloat("Force", throwForce);
+        //anim.SetFloat("Force", throwForce);
 
         if (BattleManager.instance.battleState == BattleManager.BattleState.Battling)
         {

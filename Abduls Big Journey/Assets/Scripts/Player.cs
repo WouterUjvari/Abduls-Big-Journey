@@ -3,8 +3,15 @@
 public class Player : MonoBehaviour
 {
 
+    private Animator anim;
+
     public int maxHealth;
     public int currentHealth;
+
+    private void Awake()
+    {
+        anim = transform.GetChild(0).GetComponent<Animator>();
+    }
 
     private void Update()
     {
