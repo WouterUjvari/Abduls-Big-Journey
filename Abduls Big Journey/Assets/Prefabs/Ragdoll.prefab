@@ -113,8 +113,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4991537402516002}
+  - component: {fileID: 95057313175187346}
   m_Layer: 0
-  m_Name: Abdul
+  m_Name: Ragdoll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -261,7 +262,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1369466481376790}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.2337356, y: 0.45793438, z: 0}
+  m_LocalPosition: {x: 1.233736, y: 0.45793438, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4991537402516002}
@@ -326,7 +327,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1386998335005392}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.31672907, y: 0.4349966, z: 0}
+  m_LocalPosition: {x: 0.3167291, y: 0.4349966, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4991537402516002}
@@ -583,8 +584,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.37, y: 0.55}
+    pivot: {x: 0.5, y: 0.42982456}
+    oldSize: {x: 1.47, y: 0.57}
     newSize: {x: 1.37, y: 0.55}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -624,7 +625,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.74, y: 1.19}
+    oldSize: {x: 0.84, y: 1.29}
     newSize: {x: 0.74, y: 1.19}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -660,7 +661,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.59, y: 1.03}
+    oldSize: {x: 0.69, y: 1.13}
     newSize: {x: 0.59, y: 1.03}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -699,7 +700,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.74, y: 1.19}
+    oldSize: {x: 0.84, y: 1.29}
     newSize: {x: 0.74, y: 1.19}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -733,8 +734,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.53, y: 0.99}
+    pivot: {x: 0.5, y: 0.49999997}
+    oldSize: {x: 0.63, y: 1.09}
     newSize: {x: 0.53, y: 0.99}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -772,8 +773,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.85, y: 0.48}
+    pivot: {x: 0.5, y: 0.3829787}
+    oldSize: {x: 0.95, y: 0.47}
     newSize: {x: 0.85, y: 0.48}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -803,8 +804,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.78, y: 0.49}
+    pivot: {x: 0.5, y: 0.3723404}
+    oldSize: {x: 0.88, y: 0.47}
     newSize: {x: 0.78, y: 0.49}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -836,8 +837,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.98, y: 1.15}
+    pivot: {x: 0.4558724, y: 0.49770635}
+    oldSize: {x: 1.0241742, y: 1.2557606}
     newSize: {x: 0.98, y: 1.15}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -879,8 +880,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.37, y: 0.55}
+    pivot: {x: 0.5, y: 0.42982456}
+    oldSize: {x: 1.47, y: 0.57}
     newSize: {x: 1.37, y: 0.55}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -919,8 +920,8 @@ PolygonCollider2D:
   m_Offset: {x: -0.12, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.47, y: 1.98}
+    pivot: {x: 0.628, y: 0.49240163}
+    oldSize: {x: 1.25, y: 2.1120968}
     newSize: {x: 1.31, y: 1.98}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -962,6 +963,23 @@ PolygonCollider2D:
       - {x: 0.4654677, y: -0.754766}
       - {x: 0.46070147, y: -0.6999998}
       - {x: 0.4508574, y: -0.6693764}
+--- !u!95 &95057313175187346
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1333588676502546}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f661c4dba65a9834186590d0138be871, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!212 &212398639531792432
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -1580,7 +1598,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.56, y: 0.03}
-  m_ConnectedAnchor: {x: 0.35700643, y: 0.052937984}
+  m_ConnectedAnchor: {x: 0.3570069, y: 0.052937984}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
