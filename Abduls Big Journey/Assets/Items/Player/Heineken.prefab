@@ -84,6 +84,9 @@ MonoBehaviour:
   type: 0
   damage: 65
   rotateSpeed: 400
+  itemToSpawnOnDestroy: {fileID: 1547920713810928, guid: ca4458707a244e3499d0de6d6698ba25,
+    type: 2}
+  amountOfItemsToSpawnOnDestroy: 3
 --- !u!212 &212986338707384312
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -115,7 +118,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300004, guid: d4f26070855d79a42b1695a9fd24f68a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
