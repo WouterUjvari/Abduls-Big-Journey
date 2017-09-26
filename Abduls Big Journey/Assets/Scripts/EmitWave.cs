@@ -14,7 +14,7 @@ public class EmitWave : MonoBehaviour {
         if (timer >= frequency)
         {
             timer = 0;
-            print("Wave");
+            //print("Wave");
             Instantiate(waveList[Random.Range(0, 4)], transform);
         }
     }
