@@ -3,6 +3,8 @@
 public class Enemy : MonoBehaviour
 {
 
+    private Animator anim;
+
     public int maxHealth;
     public int currentHealth;
 
@@ -11,6 +13,8 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
+        anim = GetComponent<Animator>();
+        
         currentHealth = maxHealth;
     }
 
