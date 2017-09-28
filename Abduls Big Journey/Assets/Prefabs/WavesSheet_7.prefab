@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212395390590456356}
   - component: {fileID: 114368684015989098}
   m_Layer: 0
-  m_Name: WavesSheet_3
+  m_Name: WavesSheet_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
