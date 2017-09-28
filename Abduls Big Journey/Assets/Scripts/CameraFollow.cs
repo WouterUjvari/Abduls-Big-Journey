@@ -13,7 +13,7 @@ public class CameraFollow : MonoBehaviour
 
     private void Awake()
     {
-        defaultOffset = transform.position;
+        defaultOffset = new Vector3(0, 0, transform.position.z);
     }
 
     private void Update()
@@ -32,9 +32,9 @@ public class CameraFollow : MonoBehaviour
     {
         transform.position = Vector3.Lerp(transform.position, target.transform.position + currentOffset, followSpeed * Time.deltaTime);
 
-        if (BattleManager.instance.battleState == BattleManager.BattleState.Start)
-        {
-            transform.LookAt(target.transform);
-        }
+        //if (BattleManager.instance.battleState == BattleManager.BattleState.Start)
+        //{
+        //    transform.LookAt(target.transform);
+        //}
     }
 }

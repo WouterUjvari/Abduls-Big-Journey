@@ -3,7 +3,7 @@
 public class Player : MonoBehaviour
 {
 
-    private Animator anim;
+    public Animator anim;
 
     public int maxHealth;
     public int currentHealth;

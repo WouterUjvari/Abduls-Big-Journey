@@ -27,6 +27,8 @@ public class Battle : MonoBehaviour
 
     public GameObject lastThrowLocation;
 
+    private Animator playerAnim;
+
     [Header("Force")]
     public float throwForce;
     public float maxForce = 80;
@@ -56,6 +58,8 @@ public class Battle : MonoBehaviour
 
     private void Start()
     {
+        playerAnim = player.GetComponent<Player>().anim;
+
         // clears the itemPanel to make room for this levels available items
         for (int i = 0; i < UIManager.instance.itemPanel.transform.childCount; i++)
         {
@@ -220,6 +224,27 @@ public class Battle : MonoBehaviour
     // player attacks
     public void ChargeAttack()
     {
+        AnimatorClipInfo[] currentAnimationClip = playerAnim.GetCurrentAnimatorClipInfo(0);
+        if (!playerAnim.GetBool("CanAttack"))
+        {
+            playerAnim.SetBool("CanAttack", true);
+        }
+
+        if (playerAnim.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.35f)
+        {
+            playerAnim.speed = 0.2f;
+        }
+        else
+        {
+            playerAnim.speed = 0.05f;
+        }
+
+        if (playerAnim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f && playerAnim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+        {
+            Attack();
+            return;
+        }
+
         if (throwForce <= maxForce)
         {
             throwForce += Time.deltaTime * forceIncreaseSpeed;
@@ -255,6 +280,9 @@ public class Battle : MonoBehaviour
             image.CrossFadeAlpha(0.2f, 0, true);
         }
 
+        playerAnim.SetBool("CanAttack", false);
+        playerAnim.speed = 1f;
+
         // resetting force 
         UIManager.instance.forceCursor.SetActive(false);
         throwForce = 0;
@@ -263,6 +291,10 @@ public class Battle : MonoBehaviour
 
     public void CancelAttack()
     {
+        playerAnim.SetBool("CanAttack", false);
+        playerAnim.speed = 1f;
+        playerAnim.StopPlayback();
+
         BattleManager.instance.selectedItem = false;
 
         // resetting force
