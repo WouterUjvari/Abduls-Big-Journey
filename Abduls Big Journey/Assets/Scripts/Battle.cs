@@ -234,8 +234,8 @@ public class Battle : MonoBehaviour
         // instantiating the item, adding force to it and removing it from the list
         GameObject item = Instantiate(BattleManager.instance.items[BattleManager.instance.itemSelected], player.transform);
 
-        Vector3 direction = (mousePos - player.transform.position).normalized;
-        item.GetComponent<Rigidbody>().AddForce(direction * throwForce);
+        Vector2 direction = (mousePos - player.transform.position).normalized;
+        item.GetComponent<Rigidbody2D>().AddForce(direction * throwForce);
 
         availableItems.Remove(BattleManager.instance.items[BattleManager.instance.itemSelected]);
 
