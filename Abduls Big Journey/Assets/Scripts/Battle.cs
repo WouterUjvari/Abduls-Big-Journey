@@ -230,7 +230,11 @@ public class Battle : MonoBehaviour
             playerAnim.SetBool("CanAttack", true);
         }
 
-        if (playerAnim.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.35f)
+        if (playerAnim.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.15f)
+        {
+            playerAnim.speed = 0.8f;
+        }
+        else if (playerAnim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.1f && playerAnim.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.35f)
         {
             playerAnim.speed = 0.2f;
         }

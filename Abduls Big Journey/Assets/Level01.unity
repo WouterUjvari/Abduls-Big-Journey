@@ -306,6 +306,11 @@ Prefab:
       propertyPath: m_SortingOrder
       value: -15
       objectReference: {fileID: 0}
+    - target: {fileID: 61562439702798600, guid: e707fd4ea6a6b8d40b03da8ea807d3c4,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e707fd4ea6a6b8d40b03da8ea807d3c4, type: 2}
   m_IsPrefabParent: 0
@@ -508,6 +513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aabd3575c5a8d854593f93734c63707a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   maxHealth: 100
   currentHealth: 100
 --- !u!4 &644696949
