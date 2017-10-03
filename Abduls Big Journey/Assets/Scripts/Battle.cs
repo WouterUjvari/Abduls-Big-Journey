@@ -18,7 +18,8 @@ public class Battle : MonoBehaviour
     public int item4;
 
     public GameObject player;
-    private Vector3 mousePos;
+    private Player playerScript;
+    public Vector3 mousePos;
 
     private List<GameObject> enemiesWhoCanAttack = new List<GameObject>();
     private bool canCreateEnemiesWhoCanAttack = true;
@@ -26,13 +27,6 @@ public class Battle : MonoBehaviour
     public float enemyAttackInterval = 2f;
 
     public GameObject lastThrowLocation;
-
-    private Animator playerAnim;
-
-    [Header("Force")]
-    public float throwForce;
-    public float maxForce = 80;
-    public float forceIncreaseSpeed = 3f;
 
     private void Awake()
     {
@@ -48,6 +42,7 @@ public class Battle : MonoBehaviour
         #endregion
 
         player = GameObject.FindWithTag("Player");
+        playerScript = player.GetComponent<Player>();
 
         // finds all the enemies in the scene and adds them to the enemies list
         foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
@@ -58,8 +53,6 @@ public class Battle : MonoBehaviour
 
     private void Start()
     {
-        playerAnim = player.GetComponent<Player>().anim;
-
         // clears the itemPanel to make room for this levels available items
         for (int i = 0; i < UIManager.instance.itemPanel.transform.childCount; i++)
         {
@@ -116,22 +109,22 @@ public class Battle : MonoBehaviour
                         // hold left mouse button (slowly increases the force at which the item is gonna get launched at)
                         if (Input.GetMouseButton(0))
                         {
-                            ChargeAttack();
+                            playerScript.ChargeAttack();
                         }
 
                         // release left mouse button (throws the item)
                         if (Input.GetMouseButtonUp(0))
                         {
-                            if (throwForce != 0)
+                            if (playerScript.throwForce != 0)
                             {
-                                Attack();
+                                playerScript.Attack();
                             }
                         }
 
                         // click right mouse button (cancels the attack)
                         if (Input.GetMouseButtonDown(1))
                         {
-                            CancelAttack();
+                            playerScript.CancelAttack();
                         }
                     }
                     else
@@ -221,96 +214,6 @@ public class Battle : MonoBehaviour
         button.interactable = false;
     }
 
-    // player attacks
-    public void ChargeAttack()
-    {
-        AnimatorClipInfo[] currentAnimationClip = playerAnim.GetCurrentAnimatorClipInfo(0);
-        if (!playerAnim.GetBool("CanAttack"))
-        {
-            playerAnim.SetBool("CanAttack", true);
-        }
-
-        if (playerAnim.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.15f)
-        {
-            playerAnim.speed = 0.8f;
-        }
-        else if (playerAnim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.1f && playerAnim.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.35f)
-        {
-            playerAnim.speed = 0.2f;
-        }
-        else
-        {
-            playerAnim.speed = 0.05f;
-        }
-
-        if (playerAnim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f && playerAnim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
-        {
-            Attack();
-            return;
-        }
-
-        if (throwForce <= maxForce)
-        {
-            throwForce += Time.deltaTime * forceIncreaseSpeed;
-        }
-        UIManager.instance.forceCursorFill.fillAmount = throwForce / maxForce;
-    }
-
-    public void Attack()
-    {
-        BattleManager.instance.playerCanAttack = false;
-
-        // instantiating the item, adding force to it and removing it from the list
-        GameObject item = Instantiate(BattleManager.instance.items[BattleManager.instance.itemSelected], player.transform);
-
-        Vector2 direction = (mousePos - player.transform.position).normalized;
-        item.GetComponent<Rigidbody2D>().AddForce(direction * throwForce);
-
-        availableItems.Remove(BattleManager.instance.items[BattleManager.instance.itemSelected]);
-
-        BattleManager.instance.selectedItem = false;
-
-        // leave behind an image of the cursor with a low alpha to let the player know where his last throw was
-        if (lastThrowLocation != null)
-        {
-            Destroy(lastThrowLocation);
-        }
-
-        lastThrowLocation = Instantiate(UIManager.instance.forceCursor, UIManager.instance.forceCursor.transform.position, Quaternion.identity, UIManager.instance.forceCursor.transform.parent);
-
-        Image[] images = lastThrowLocation.GetComponentsInChildren<Image>();
-        foreach (Image image in images)
-        {
-            image.CrossFadeAlpha(0.2f, 0, true);
-        }
-
-        playerAnim.SetBool("CanAttack", false);
-        playerAnim.speed = 1f;
-
-        // resetting force 
-        UIManager.instance.forceCursor.SetActive(false);
-        throwForce = 0;
-        UIManager.instance.forceCursorFill.GetComponent<Image>().fillAmount = 0;
-    }
-
-    public void CancelAttack()
-    {
-        playerAnim.SetBool("CanAttack", false);
-        playerAnim.speed = 1f;
-        playerAnim.StopPlayback();
-
-        BattleManager.instance.selectedItem = false;
-
-        // resetting force
-        UIManager.instance.forceCursor.SetActive(false);
-        throwForce = 0;
-        UIManager.instance.forceCursorFill.fillAmount = 0;
-
-        // setting the item button to interactable again
-        BattleManager.instance.lastSelectedItemButton.interactable = true;
-    }
-
-    // enemy attacks
     public IEnumerator EnemyAttack(int enemy)
     {
         print(enemies[enemy].name + " is attacking!");
