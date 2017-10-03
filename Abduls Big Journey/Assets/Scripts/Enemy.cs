@@ -3,7 +3,7 @@
 public class Enemy : MonoBehaviour
 {
 
-    private Animator anim;
+    public Animator anim;
 
     public int maxHealth;
     public int currentHealth;
@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void Attack()
+    public virtual void Attack()
     {
         GameObject item = Instantiate(throwingItem, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), Quaternion.identity);
 
@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
         item.GetComponent<Rigidbody>().AddForce(shootDirection * throwForce);
     }
 
-    public void Hit(int damage)
+    public virtual void Hit(int damage)
     {
         currentHealth -= damage;
     }
