@@ -513,6 +513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   throwingHand: {fileID: 1777766286}
+  itemAboutToThrow: {fileID: 0}
   maxHealth: 100
   currentHealth: 100
   throwForce: 0
@@ -1153,4 +1154,4 @@ MonoBehaviour:
   currentHealth: 0
   throwingItem: {fileID: 1547920713810928, guid: 3eb401d2b86cae643914b550fb3f5d0a,
     type: 2}
-  throwForce: 0
+  throwForce: 1000
