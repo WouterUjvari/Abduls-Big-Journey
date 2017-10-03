@@ -14,6 +14,7 @@ public class Item : MonoBehaviour
 
     public int damage;
 
+    public bool canRotate;
     public float rotateSpeed;
 
     [Header("Extras")]
@@ -22,7 +23,10 @@ public class Item : MonoBehaviour
 
     private void Update()
     {
-        transform.Rotate(-Vector3.forward * (Time.deltaTime * rotateSpeed));
+        if (canRotate)
+        {
+            transform.Rotate(-Vector3.forward * (Time.deltaTime * rotateSpeed));
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

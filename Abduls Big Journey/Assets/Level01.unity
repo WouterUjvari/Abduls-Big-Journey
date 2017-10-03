@@ -349,11 +349,9 @@ MonoBehaviour:
   item3: 1
   item4: 3
   player: {fileID: 0}
+  mousePos: {x: 0, y: 0, z: 0}
   enemyAttackInterval: 2
   lastThrowLocation: {fileID: 0}
-  throwForce: 0
-  maxForce: 1600
-  forceIncreaseSpeed: 600
 --- !u!114 &205361668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,8 +512,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
+  throwingHand: {fileID: 1777766286}
   maxHealth: 100
   currentHealth: 100
+  throwForce: 0
+  maxForce: 1600
+  forceIncreaseSpeed: 600
 --- !u!4 &644696949
 Transform:
   m_ObjectHideFlags: 0
@@ -1051,6 +1053,11 @@ Prefab:
 --- !u!4 &1777766285 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4503693503224094, guid: ecbf4fd83b1bf184f8bb3c49118921f7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1777766284}
+--- !u!4 &1777766286 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4489944986134472, guid: ecbf4fd83b1bf184f8bb3c49118921f7,
     type: 2}
   m_PrefabInternal: {fileID: 1777766284}
 --- !u!1001 &1795405395
