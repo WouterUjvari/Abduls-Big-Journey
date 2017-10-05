@@ -600,8 +600,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4784197535434140}
   - component: {fileID: 95710617982170118}
-  - component: {fileID: 114606895187188816}
   - component: {fileID: 60270634064339824}
+  - component: {fileID: 114272495037337160}
+  - component: {fileID: 114188117540198710}
   m_Layer: 0
   m_Name: Squid
   m_TagString: Enemy
@@ -1368,6 +1369,18 @@ MonoBehaviour:
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4730157774097980}
   m_AttachedIK: {fileID: 0}
+--- !u!114 &114188117540198710
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1906569342700898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 699af853502b37b4cb9e0da1e75263d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 114272495037337160}
 --- !u!114 &114192556985831232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1390,6 +1403,23 @@ MonoBehaviour:
   - {fileID: 4740699900340742}
   - {fileID: 4669913165056542}
   - {fileID: 4334870838489952}
+--- !u!114 &114272495037337160
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1906569342700898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3d3eed7eda84b648b61a400cef03038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  maxHealth: 100
+  currentHealth: 0
+  throwingItem: {fileID: 1547920713810928, guid: 3eb401d2b86cae643914b550fb3f5d0a,
+    type: 2}
+  throwForce: 1000
 --- !u!114 &114312930957306494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1560,23 +1590,6 @@ MonoBehaviour:
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 0}
   m_AttachedIK: {fileID: 0}
---- !u!114 &114606895187188816
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1906569342700898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb0ab2e01291d444593da0a918792de8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  maxHealth: 100
-  currentHealth: 0
-  throwingItem: {fileID: 1547920713810928, guid: 3eb401d2b86cae643914b550fb3f5d0a,
-    type: 2}
-  throwForce: 300
 --- !u!114 &114613905322122466
 MonoBehaviour:
   m_ObjectHideFlags: 1

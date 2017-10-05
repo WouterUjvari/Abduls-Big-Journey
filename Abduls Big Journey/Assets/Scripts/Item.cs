@@ -35,7 +35,7 @@ public class Item : MonoBehaviour
         {
             if (other.tag == "Enemy")
             {
-                other.GetComponent<EnemySquidScript>().Hit(damage);
+                other.GetComponent<EnemyComponent>().enemy.Hit(damage);
 
                 for (int i = 0; i < amountOfItemsToSpawnOnDestroy; i++)
                 {

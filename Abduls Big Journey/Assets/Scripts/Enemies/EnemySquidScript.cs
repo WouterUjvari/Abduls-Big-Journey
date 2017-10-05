@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySquidScript : Enemy {
+public class EnemySquidScript : Enemy
+{
 
     public override void Hit(int damage)
     {
@@ -13,7 +14,7 @@ public class EnemySquidScript : Enemy {
 
     public override void Attack()
     {
-        
+
         //base.Attack();
         print("Attack!!!");
         anim.SetTrigger("pInkAttack");
@@ -32,6 +33,4 @@ public class EnemySquidScript : Enemy {
 
         item.GetComponent<Rigidbody>().AddForce(shootDirection * throwForce);
     }
-
-
 }

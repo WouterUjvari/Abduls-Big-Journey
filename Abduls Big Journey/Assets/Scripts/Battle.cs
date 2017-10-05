@@ -218,7 +218,7 @@ public class Battle : MonoBehaviour
     {
         print(enemies[enemy].name + " is attacking!");
         enemyCanAttack = false;
-        enemies[enemy].GetComponent<EnemySquidScript>().Attack();
+        enemies[enemy].GetComponent<EnemyComponent>().enemy.Attack();
 
         yield return new WaitForSeconds(enemyAttackInterval);
         enemyCanAttack = true;

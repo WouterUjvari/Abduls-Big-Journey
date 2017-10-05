@@ -29,7 +29,7 @@ public class DisplayHealth : MonoBehaviour
 
         foreach (GameObject enemy in Battle.instance.enemies)
         {
-            currentHealth += enemy.GetComponent<Enemy>().currentHealth;
+            currentHealth += enemy.GetComponent<EnemyComponent>().enemy.currentHealth;
         }
 
         return currentHealth;
@@ -41,7 +41,7 @@ public class DisplayHealth : MonoBehaviour
 
         foreach (GameObject enemy in Battle.instance.enemies)
         {
-            maxHealth += enemy.GetComponent<Enemy>().maxHealth;
+            maxHealth += enemy.GetComponent<EnemyComponent>().enemy.maxHealth;
         }
 
         return maxHealth;

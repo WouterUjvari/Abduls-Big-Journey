@@ -1100,17 +1100,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 137971980334375260, guid: f33cc2d4fa86a5d44b1486fd30d2ec3c,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 137722147038889088, guid: f33cc2d4fa86a5d44b1486fd30d2ec3c,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 137620254972682792, guid: f33cc2d4fa86a5d44b1486fd30d2ec3c,
+    - target: {fileID: 137015196959596504, guid: f33cc2d4fa86a5d44b1486fd30d2ec3c,
         type: 2}
       propertyPath: m_Mesh
       value: 
@@ -1120,38 +1110,21 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 137015196959596504, guid: f33cc2d4fa86a5d44b1486fd30d2ec3c,
+    - target: {fileID: 137620254972682792, guid: f33cc2d4fa86a5d44b1486fd30d2ec3c,
         type: 2}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 114606895187188816, guid: f33cc2d4fa86a5d44b1486fd30d2ec3c,
+    - target: {fileID: 137722147038889088, guid: f33cc2d4fa86a5d44b1486fd30d2ec3c,
         type: 2}
-      propertyPath: m_Enabled
-      value: 0
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 137971980334375260, guid: f33cc2d4fa86a5d44b1486fd30d2ec3c,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f33cc2d4fa86a5d44b1486fd30d2ec3c, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1795405396 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1906569342700898, guid: f33cc2d4fa86a5d44b1486fd30d2ec3c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1795405395}
---- !u!114 &1795405397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1795405396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3d3eed7eda84b648b61a400cef03038, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  maxHealth: 100
-  currentHealth: 0
-  throwingItem: {fileID: 1547920713810928, guid: 3eb401d2b86cae643914b550fb3f5d0a,
-    type: 2}
-  throwForce: 1000

@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         anim = GetComponent<Animator>();
-        
+
         currentHealth = maxHealth;
     }
 
@@ -32,8 +32,8 @@ public class Enemy : MonoBehaviour
 
         Vector3 playerHitDirectionRandomizer = new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), Random.Range(-3, 3));
 
-        Vector3 playerHitDirection = new Vector3(Battle.instance.player.transform.position.x + playerHitDirectionRandomizer.x, 
-                                                 Battle.instance.player.transform.position.y + 5 + playerHitDirectionRandomizer.y, 
+        Vector3 playerHitDirection = new Vector3(Battle.instance.player.transform.position.x + playerHitDirectionRandomizer.x,
+                                                 Battle.instance.player.transform.position.y + 5 + playerHitDirectionRandomizer.y,
                                                  Battle.instance.player.transform.position.z + playerHitDirectionRandomizer.z);
         Vector3 shootDirection = (playerHitDirection - transform.position).normalized;
 
