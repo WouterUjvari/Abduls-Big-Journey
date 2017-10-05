@@ -512,7 +512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  throwingHand: {fileID: 1777766286}
+  throwingPosition: {fileID: 1178069654}
   itemAboutToThrow: {fileID: 0}
   maxHealth: 100
   currentHealth: 100
@@ -692,6 +692,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1178069653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1178069654}
+  m_Layer: 0
+  m_Name: ThrowingPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1178069654
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1178069653}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.8, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1777766286}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1593390203
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,6 +1076,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21617461622618872, guid: 3391ce85e1f181b4bb519278264152ff,
         type: 2}
+    - target: {fileID: 4648679670454912, guid: ecbf4fd83b1bf184f8bb3c49118921f7, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ecbf4fd83b1bf184f8bb3c49118921f7, type: 2}
   m_IsPrefabParent: 0

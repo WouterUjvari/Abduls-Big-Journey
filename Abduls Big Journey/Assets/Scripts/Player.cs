@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
 
     public Animator anim;
 
-    public Transform throwingHand;
+    public Transform throwingPosition;
     public GameObject itemAboutToThrow;
 
     public int maxHealth;
@@ -50,8 +50,9 @@ public class Player : MonoBehaviour
 
             if (!instantiatedItem)
             {
-                itemAboutToThrow = Instantiate(BattleManager.instance.items[BattleManager.instance.itemSelected], transform);
-                itemAboutToThrow.transform.SetParent(throwingHand);
+                itemAboutToThrow = Instantiate(BattleManager.instance.items[BattleManager.instance.itemSelected], throwingPosition.position, Quaternion.identity);
+                itemAboutToThrow.transform.rotation *= Quaternion.Euler(180, 0, 0);
+                itemAboutToThrow.transform.SetParent(throwingPosition);
                 itemAboutToThrow.GetComponent<Rigidbody2D>().isKinematic = true;
 
                 instantiatedItem = true;
