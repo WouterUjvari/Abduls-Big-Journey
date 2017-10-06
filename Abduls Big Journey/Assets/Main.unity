@@ -1132,6 +1132,8 @@ MonoBehaviour:
   turnText: {fileID: 1482305798}
   gameEndPanel: {fileID: 513876960}
   victoryOrDefeatText: {fileID: 1583816958}
+  speechBubble: {fileID: 1077511041454934, guid: 4f5fd39efd9c390468debfd256a05691,
+    type: 2}
 --- !u!4 &674318457
 Transform:
   m_ObjectHideFlags: 0

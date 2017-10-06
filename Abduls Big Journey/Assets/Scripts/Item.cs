@@ -43,6 +43,12 @@ public class Item : MonoBehaviour
                     itemSpawn.GetComponent<Rigidbody2D>().AddForce(Vector2.up * Random.Range(200, 300) + Vector2.right * Random.Range(-200, 200));
                 }
 
+                float randomSpeech = Random.value;
+                if (randomSpeech < 1f) // random value geeft een komma getal tussen 0 en 1, de kans voor een speechbubble is nu ff 100%
+                {
+                    UIManager.instance.NewSpeechBubble(GameObject.FindWithTag("Player").GetComponent<Player>().speechBubbleSpawn, "Gotcha!", 2, 1, 15, 5);
+                }
+
                 Destroy(gameObject);
             }
         }

@@ -30,6 +30,8 @@ public class UIManager : MonoBehaviour
     public GameObject gameEndPanel;
     public Text victoryOrDefeatText;
 
+    public GameObject speechBubble;
+
     private void Awake()
     {
         #region Singleton
@@ -44,5 +46,18 @@ public class UIManager : MonoBehaviour
         #endregion
 
         DontDestroyOnLoad(gameObject);
+    }
+
+    public void NewSpeechBubble(Transform transform, string text, float maxSize, float desiredSize, float transformSpeed, float fadeSpeed)
+    {
+        GameObject newSpeechBubble = Instantiate(speechBubble, transform.position, Quaternion.identity, transform);
+
+        SpeechBubble speechBubbleComponent = newSpeechBubble.GetComponent<SpeechBubble>();
+
+        speechBubbleComponent.text = text;
+        speechBubbleComponent.maxSize = maxSize;
+        speechBubbleComponent.desiredSize = desiredSize;
+        speechBubbleComponent.transformSpeed = transformSpeed;
+        speechBubbleComponent.fadeSpeed = fadeSpeed;
     }
 }

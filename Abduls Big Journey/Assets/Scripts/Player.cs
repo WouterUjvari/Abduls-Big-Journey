@@ -8,9 +8,11 @@ public class Player : MonoBehaviour
 
     public Animator anim;
 
+    [Header("Throwing")]
     public Transform throwingPosition;
     public GameObject itemAboutToThrow;
 
+    [Header("Stats")]
     public int maxHealth;
     public int currentHealth;
 
@@ -18,6 +20,9 @@ public class Player : MonoBehaviour
     public float throwForce;
     public float maxForce = 80;
     public float forceIncreaseSpeed = 3f;
+
+    [Header("Other Stuff")]
+    public Transform speechBubbleSpawn;
 
     private void Awake()
     {
