@@ -526,6 +526,7 @@ GameObject:
   m_Component:
   - component: {fileID: 644696949}
   - component: {fileID: 644696948}
+  - component: {fileID: 644696950}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -568,6 +569,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &644696950
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 644696947}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.19168949, y: 0.00000023841858}
+  m_Size: {x: 1.2049236, y: 4.8832517}
+  m_Direction: 0
 --- !u!1 &862010709
 GameObject:
   m_ObjectHideFlags: 0
@@ -1261,17 +1277,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 137015196959596504, guid: f33cc2d4fa86a5d44b1486fd30d2ec3c,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 137361664486597890, guid: f33cc2d4fa86a5d44b1486fd30d2ec3c,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 137620254972682792, guid: f33cc2d4fa86a5d44b1486fd30d2ec3c,
+    - target: {fileID: 137971980334375260, guid: f33cc2d4fa86a5d44b1486fd30d2ec3c,
         type: 2}
       propertyPath: m_Mesh
       value: 
@@ -1281,7 +1287,17 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 137971980334375260, guid: f33cc2d4fa86a5d44b1486fd30d2ec3c,
+    - target: {fileID: 137620254972682792, guid: f33cc2d4fa86a5d44b1486fd30d2ec3c,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 137361664486597890, guid: f33cc2d4fa86a5d44b1486fd30d2ec3c,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 137015196959596504, guid: f33cc2d4fa86a5d44b1486fd30d2ec3c,
         type: 2}
       propertyPath: m_Mesh
       value: 

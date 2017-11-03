@@ -31,6 +31,6 @@ public class EnemySquidScript : Enemy
                                                  Battle.instance.player.transform.position.z + playerHitDirectionRandomizer.z);
         Vector3 shootDirection = (playerHitDirection - transform.position).normalized;
 
-        item.GetComponent<Rigidbody>().AddForce(shootDirection * throwForce);
+        item.GetComponent<Rigidbody2D>().AddForce(shootDirection * throwForce);
     }
 }

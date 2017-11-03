@@ -1417,9 +1417,9 @@ MonoBehaviour:
   anim: {fileID: 0}
   maxHealth: 100
   currentHealth: 0
-  throwingItem: {fileID: 1547920713810928, guid: 3eb401d2b86cae643914b550fb3f5d0a,
+  throwingItem: {fileID: 1454406647351950, guid: e98bac8f08532944ebaa6a341bd82172,
     type: 2}
-  throwForce: 1000
+  throwForce: 1500
 --- !u!114 &114312930957306494
 MonoBehaviour:
   m_ObjectHideFlags: 1
