@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -74,5 +75,10 @@ public class GameManager : MonoBehaviour
         }
 
         LoadLevel(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void DisableClickedButton(Button button)
+    {
+        button.interactable = false;
     }
 }

@@ -143,7 +143,10 @@ public class Player : MonoBehaviour
         UIManager.instance.forceCursorFill.fillAmount = 0;
 
         // setting the item button to interactable again
-        BattleManager.instance.lastSelectedItemButton.interactable = true;
+        if (BattleManager.instance.lastSelectedItemButton != null)
+        {
+            BattleManager.instance.lastSelectedItemButton.interactable = true;
+        }
     }
 
     public void Hit(int damage)

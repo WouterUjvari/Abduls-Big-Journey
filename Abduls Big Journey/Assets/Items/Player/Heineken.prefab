@@ -100,7 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  damage: 65
+  damage: 20
+  canRotate: 0
   rotateSpeed: 400
   itemToSpawnOnDestroy: {fileID: 1547920713810928, guid: ca4458707a244e3499d0de6d6698ba25,
     type: 2}

@@ -12,13 +12,15 @@ public class Battle : MonoBehaviour
 
     public List<GameObject> availableItems = new List<GameObject>();
 
+    public ItemManager itemManager;
+
     public int item1;
     public int item2;
     public int item3;
     public int item4;
 
     public GameObject player;
-    private Player playerScript;
+    public Player playerScript;
     public Vector3 mousePos;
 
     private List<GameObject> enemiesWhoCanAttack = new List<GameObject>();
@@ -172,7 +174,7 @@ public class Battle : MonoBehaviour
                 }
 
                 // if the list enemiesWhoCanAttack is empty, all the enemies have attacked and the player gets to play again
-                if (enemiesWhoCanAttack.Count == 0)
+                if (enemiesWhoCanAttack.Count == 0 && ItemManager.instance.itemsInScene.Count < 1)
                 {
                     if (availableItems.Count == 0)
                     {

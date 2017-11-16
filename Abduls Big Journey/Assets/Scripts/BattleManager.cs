@@ -64,7 +64,7 @@ public class BattleManager : MonoBehaviour
 
     public void EndTurn()
     {
-        if (Battle.instance.enemies.Count != 0)
+        if (Battle.instance.enemies.Count != 0 && ItemManager.instance.itemsInScene.Count < 1)
         {
             turnState = TurnState.Enemy;
         }

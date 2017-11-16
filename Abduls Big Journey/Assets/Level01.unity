@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44353023, g: 0.49283618, b: 0.57242864, a: 1}
+  m_IndirectSpecularColor: {r: 0.44353023, g: 0.49283624, b: 0.57242864, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -332,6 +332,7 @@ GameObject:
   - component: {fileID: 205361669}
   - component: {fileID: 205361667}
   - component: {fileID: 205361668}
+  - component: {fileID: 205361670}
   m_Layer: 0
   m_Name: Battle
   m_TagString: Untagged
@@ -356,7 +357,8 @@ MonoBehaviour:
   item2: 1
   item3: 1
   item4: 3
-  player: {fileID: 0}
+  player: {fileID: 644696947}
+  playerScript: {fileID: 0}
   mousePos: {x: 0, y: 0, z: 0}
   enemyAttackInterval: 2
   lastThrowLocation: {fileID: 0}
@@ -384,6 +386,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &205361670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 205361666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78fedcd332d2e04cb241fb38348ac65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsInScene: []
 --- !u!1 &287623897
 GameObject:
   m_ObjectHideFlags: 0
@@ -2518,6 +2532,10 @@ Prefab:
     - target: {fileID: 4648679670454912, guid: ecbf4fd83b1bf184f8bb3c49118921f7, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1848361648797188, guid: ecbf4fd83b1bf184f8bb3c49118921f7, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ecbf4fd83b1bf184f8bb3c49118921f7, type: 2}

@@ -21,6 +21,11 @@ public class Item : MonoBehaviour
     public GameObject itemToSpawnOnDestroy;
     public int amountOfItemsToSpawnOnDestroy;
 
+    private void Awake()
+    {
+        ItemManager.instance.itemsInScene.Add(gameObject);
+    }
+
     private void Update()
     {
         if (canRotate)
@@ -44,7 +49,7 @@ public class Item : MonoBehaviour
                 }
 
                 float randomSpeech = Random.value;
-                if (randomSpeech < 1f) // random value geeft een komma getal tussen 0 en 1, de kans voor een speechbubble is nu ff 100%
+                if (randomSpeech < 0.5f)
                 {
                     UIManager.instance.NewSpeechBubble(GameObject.FindWithTag("Player").GetComponent<Player>().speechBubbleSpawn, "Gotcha!", 2, 1, 15, 5);
                 }
@@ -60,5 +65,15 @@ public class Item : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        ItemManager.instance.itemsInScene.Remove(gameObject);
     }
 }
