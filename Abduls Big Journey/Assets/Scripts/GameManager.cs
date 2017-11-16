@@ -36,35 +36,57 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator LoadLevelAsync(int level)
     {
-        UIManager.instance.curtainsAnimator.SetTrigger("CloseCurtains");
-
-        yield return new WaitForSeconds(UIManager.instance.curtainsAnimator.GetCurrentAnimatorClipInfo(0).Length);
-
-        AsyncOperation operation = SceneManager.LoadSceneAsync(level);
-        UIManager.instance.introScreen.SetActive(false);
-
-        while (!operation.isDone)
+        if (level == 0)
         {
-            yield return null;
+            UIManager.instance.curtainsAnimator.SetTrigger("CloseCurtains");
+
+            yield return new WaitForSeconds(UIManager.instance.curtainsAnimator.GetCurrentAnimatorClipInfo(0).Length);
+
+            UIManager.instance.gameplayPanel.SetActive(false);
+            UIManager.instance.itemPanel.SetActive(false);
+
+            AsyncOperation operation = SceneManager.LoadSceneAsync(level);
+            UIManager.instance.introScreen.SetActive(false);
+
+            while (!operation.isDone)
+            {
+                yield return null;
+            }
+
+            UIManager.instance.curtainsAnimator.SetTrigger("OpenCurtains");
         }
+        else
+        {
+            UIManager.instance.curtainsAnimator.SetTrigger("CloseCurtains");
 
-        BattleManager.instance.StartLevel();
+            yield return new WaitForSeconds(UIManager.instance.curtainsAnimator.GetCurrentAnimatorClipInfo(0).Length + 0.5f);
 
-        UIManager.instance.curtainsAnimator.SetTrigger("OpenCurtains");
+            AsyncOperation operation = SceneManager.LoadSceneAsync(level);
+            UIManager.instance.introScreen.SetActive(false);
 
-        yield return new WaitForSeconds(UIManager.instance.curtainsAnimator.GetCurrentAnimatorClipInfo(0).Length);
+            while (!operation.isDone)
+            {
+                yield return null;
+            }
 
-        UIManager.instance.levelText.text = "Level: " + level;
-        UIManager.instance.levelText.enabled = true;
-        UIManager.instance.notificationsAnimator.SetTrigger("SetActive");
-        yield return new WaitForSeconds(UIManager.instance.notificationsAnimator.GetCurrentAnimatorClipInfo(0).Length);
-        UIManager.instance.notificationsAnimator.SetTrigger("SetInActive");
-        yield return new WaitForSeconds(UIManager.instance.notificationsAnimator.GetCurrentAnimatorClipInfo(0).Length);
+            BattleManager.instance.StartLevel();
 
-        yield return new WaitForSeconds(0.5f);
-        UIManager.instance.levelText.enabled = false;
+            UIManager.instance.curtainsAnimator.SetTrigger("OpenCurtains");
 
-        BattleManager.instance.battleState = BattleManager.BattleState.Battling;
+            yield return new WaitForSeconds(UIManager.instance.curtainsAnimator.GetCurrentAnimatorClipInfo(0).Length);
+
+            UIManager.instance.levelText.text = "Level: " + level;
+            UIManager.instance.levelText.enabled = true;
+            UIManager.instance.notificationsAnimator.SetTrigger("SetActive");
+            yield return new WaitForSeconds(UIManager.instance.notificationsAnimator.GetCurrentAnimatorClipInfo(0).Length);
+            UIManager.instance.notificationsAnimator.SetTrigger("SetInActive");
+            yield return new WaitForSeconds(UIManager.instance.notificationsAnimator.GetCurrentAnimatorClipInfo(0).Length);
+
+            yield return new WaitForSeconds(0.5f);
+            UIManager.instance.levelText.enabled = false;
+
+            BattleManager.instance.battleState = BattleManager.BattleState.Battling;
+        }
     }
 
     public void ReplayLevel(int level)
